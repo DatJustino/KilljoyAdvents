@@ -17,7 +17,9 @@ function fillActivityDropDown(activity) {
     el.value = activity.activityId
     el.textContent = activity.activityId
     el.textContent += " så" //test
+    el.activity = activity //så reservation kan få hele activity object fra dropdown
     console.log(activity.activityId)
+    console.log(activity)
     ddSelectActivity.appendChild(el)
 }
 

@@ -44,4 +44,5 @@ public class ActivityController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     } //erik kalder det skrammelkode fordi der er mange linjer. Heller en linje hvis man kan
-}
+} //virker ikke med at opdatere id i postman fordi man åbenbart ikke bare lige kan opdatere id'er
+//men man kan gøre som jeg gør for at opdatere attributter, men ikke id
