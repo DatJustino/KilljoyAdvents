@@ -1,6 +1,5 @@
 package com.example.killjoy.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,7 @@ public class Reservation {
     @Column(length = 4)
     private String reservationId;
 
-    @ManyToOne
-    @JoinColumn(name = "activityId", referencedColumnName = "activityId")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "activityId", referencedColumnName = "activityId", nullable = false) //res skal have act
     private Activity activity;
 }

@@ -19,7 +19,7 @@ public class Activity {
     @Column(length = 4)
     private String activityId;
 
-    @OneToMany(mappedBy = "activity")
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     private Set<Reservation> reservations = new HashSet<>();
 }
