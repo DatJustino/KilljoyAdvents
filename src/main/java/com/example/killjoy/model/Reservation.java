@@ -12,9 +12,14 @@ import lombok.Setter;
 public class Reservation {
     @Id
     @Column(length = 4)
-    private String reservationId;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Integer reservationId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "activityId", referencedColumnName = "activityId", nullable = false) //res skal have act
-    private Activity activity;
+    @JoinColumn(name = "timeslotId", referencedColumnName = "timeslotId", nullable = false) //res skal have act
+    private Timeslot timeslot;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId", nullable = false) //res skal have act
+    private Customer customer;
 }

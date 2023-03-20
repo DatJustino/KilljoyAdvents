@@ -33,7 +33,10 @@ body{
     margin: 0 4px;
     border-radius: 100%;
     box-shadow: 0 0 0 6px #4fc3dc44,
+    0 0 30px #4fc3dc,
+    0 0 20px #4fc3dc,
     0 0 50px #4fc3dc,
+    0 0 250px #4fc3dc,
     0 0 100px #4fc3dc;
     animation: animate 15s linear infinite;
     animation-duration: calc(180s / var(--i));
@@ -41,7 +44,10 @@ body{
 .bubbles span:nth-child(even){
     background: #ff2d75;
     box-shadow: 0 0 0 6px #ff2d7544,
+    0 0 30px #ff2d75,
+    0 0 20px #ff2d75,
     0 0 50px #ff2d75,
+    0 0 250px #ff2d75,
     0 0 100px #ff2d75
 }
 
