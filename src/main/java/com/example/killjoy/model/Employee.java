@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,9 +16,21 @@ import java.util.Set;
 @NoArgsConstructor
 public class Employee {
     @Id
-    @Column(length = 4)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
+
+    @Column(name = "firstname")
+    private String firstName;
+
+    @Column(name = "lastname")
+    private String lastName;
+
+    @NotNull
+    @Column(name = "mobilnr")
+    private String mobilNr;
+
+    @NotNull
+    private String email;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference

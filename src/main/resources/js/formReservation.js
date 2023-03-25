@@ -38,9 +38,13 @@ async function handleFormSubmit(event) {
 
 async function postFormData(url, formData) {
     const plainFormData = Object.fromEntries(formData.entries())
-    const ix = ddSelectActivity.selectedIndex;
-    const linje = ddSelectActivity[ix]
-    plainFormData.activity = linje.activity
+    const ixtimeslot = ddSelectTimeslot.selectedIndex;
+    const linjetimeslot = ddSelectTimeslot[ixtimeslot]
+    plainFormData.timeslot = linjetimeslot.timeslot
+
+    const ix = ddSelectCustomer.selectedIndex;
+    const linje = ddSelectCustomer[ix]
+    plainFormData.customer = linje.customer
     console.log("plainFormData: ", plainFormData)
     const formDataJsonString = JSON.stringify(plainFormData)
     const fetchOptions = {

@@ -23,7 +23,7 @@ public class ActivityController {
         return activityRepo.findAll();
     }
     @GetMapping("/activity/{id}")
-    public Activity getActivity(@PathVariable String id){
+    public Activity getActivity(@PathVariable Integer id){
         return activityRepo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
     @PostMapping("/activity")
@@ -34,8 +34,8 @@ public class ActivityController {
     }
     //post til ny, put til opdatering
 
-    @PutMapping("/activity/{id}") //putmapping
-    public ResponseEntity<Activity> updateActivity(@PathVariable String id, @RequestBody Activity activity) {
+    @PutMapping("/activity/{id}")
+    public ResponseEntity<Activity> updateActivity(@PathVariable Integer id, @RequestBody Activity activity) {
         Optional<Activity> activityOptional = activityRepo.findById(id);
         if (activityOptional.isPresent()) {
             activityRepo.save(activity);
@@ -44,5 +44,11 @@ public class ActivityController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     } //erik kalder det skrammelkode fordi der er mange linjer. Heller en linje hvis man kan
+
+    @DeleteMapping("/activity/{id}") //http metoder: get, post, put, delete, patch
+    public ResponseEntity<Activity> deleteActivity(@PathVariable Integer id) {
+        activityRepo.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 } //virker ikke med at opdatere id i postman fordi man åbenbart ikke bare lige kan opdatere id'er
 //men man kan gøre som jeg gør for at opdatere attributter, men ikke id

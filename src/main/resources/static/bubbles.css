@@ -2,7 +2,7 @@
 .logo{
     position: relative;
     text-align: center;
-    z-index: -1;
+    z-index: 2;
     margin: auto;
 }
 *{
@@ -17,7 +17,7 @@ body{
 .container{
     position: relative;
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
     overflow: hidden;
 }
 .bubbles{
@@ -36,8 +36,9 @@ body{
     0 0 30px #4fc3dc,
     0 0 20px #4fc3dc,
     0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc,
     0 0 250px #4fc3dc,
-    0 0 100px #4fc3dc;
+    0 0 90px #4fc3dc;
     animation: animate 15s linear infinite;
     animation-duration: calc(180s / var(--i));
 }
@@ -47,13 +48,14 @@ body{
     0 0 30px #ff2d75,
     0 0 20px #ff2d75,
     0 0 50px #ff2d75,
+    0 0 90px #ff2d75,
     0 0 250px #ff2d75,
     0 0 100px #ff2d75
 }
 
 @keyframes animate{
     0%{transform: translateY(100vh) scale(0);}
-    100%{transform: translateY(-10vh) scale(1);}
+    100%{transform: translateY(-10vh) scale(0.7);}
 }
 /*here it is using (inline variables) like in the example (--i:number),
 how does that work? By controlling the tag by numbers like a class, how is that?
@@ -64,3 +66,53 @@ will take time, but if you divide 120s / 30=4s This will only take 4s.
 This is simply the idea of the genius project, and this is what the code
 does exactly, and this calculation only works using the calculator calc, like in
 the example calc (120 / var(--i) ), */
+
+/*cards:*/
+.containercards {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 54px;
+}
+
+#activitygrit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+}
+
+.card {
+    list-style: none;
+    padding: 40px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    /*glassmorphism*/
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    z-index: 2; /*added*/
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0;
+    font-size: 32px;
+    font-weight: normal;
+}
+.card-subtitle {
+    margin-top: 5px;
+    color: #666;
+    font-weight: lighter;
+}
+
+.card-image {
+    height: 180px;
+}

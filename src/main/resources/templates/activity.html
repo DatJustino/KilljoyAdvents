@@ -15,20 +15,43 @@
     Tænk dog over om en dropdown SKAL vælges eller om der skal være et tom felt som kan submittes
     skal der overhoved være en placeholder-->
 </select>
+<br><br>
+<select id="ddSelectEmployee">
+    <option value="" selected="data-default" disabled="true">Medarbejdere</option>
+</select>
 
 <h2>Indsæt aktivitet</h2>
 
 <div> <!--at bruge action er gammeldags måde at inludere url-->
     <form action="http://localhost:8080/activity" method="post" id="formActivity">
         <div>
+            <label for="inpName">Navn</label>
+            <input
+                    type="text"
+                    name="name"
+                    class="inputfield"
+                    placeholder="eks. paintball"
+                    id="inpName"> <!--name bruger vi i js, skal hedde det samme som i db-->
+            <!--
             <label for="inpCode">Id</label>
             <input
                     type="text"
                     name="activityId"
                     class="inputfield"
                     placeholder="eks. 0003"
-                    id="inpCode"> <!--name bruger vi i js-->
+                    id="inpCode"> name bruger vi i js-->
         </div>
+        <br>
+        <div>
+            <label for="inpUrl">Navn</label>
+            <input
+                    type="text"
+                    name="imageurl"
+                    class="inputfield"
+                    placeholder="eks. ../static/activity.png"
+                    id="inpUrl">
+        </div>
+        <br>
         <!--det vi slås mest med, at putte en foreign key på et child objekt, sætte region på kommune-->
         <!--<div>
             <select id="ddRegioner"></select>
@@ -36,14 +59,10 @@
         -->
         <button type="submit" title="Gem" id="submit">Opret</button>
     </form> <!--man bør kunne sende formen direkte uden js men muligvis virker det ikke fordi den ikke sender det som json-->
-
 </div>
 
-<script src="../js/fetchFraDb.js"></script>
-<script src="../js/endpoints.js"></script>
-<!--
+
 <script src="../js/fetchActivity.js"></script>
--->
 <script src="../js/formActivity.js"></script>
 
 </body>

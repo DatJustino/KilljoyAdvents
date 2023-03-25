@@ -22,9 +22,9 @@ async function handleFormSubmit(event) {
         const responseData = await postFormData(url, formData)
 
         // når vi har oprettet sognet
-        alert(formData.get('navn') + ' er oprettet');
+        alert(formData.get('name') + ' er oprettet');
 
-        const homeUrl = "index.html";
+        const homeUrl = "activity.html";
         window.location.replace(homeUrl); //man kan ikke gøre det her indeni en submit button
         //window.location.href = homeUrl;
 

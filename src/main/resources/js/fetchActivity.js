@@ -11,20 +11,22 @@ async function loadActivity(){
     activityList.forEach(fillActivityDropDown)
 }
 
+function fetchAny(url) {
+    console.log(url)
+    return fetch(url).then((response) => response.json())
+}
+
 function fillActivityDropDown(activity) {
     const el = document.createElement("option")
     console.log(el)
     el.value = activity.activityId
     el.textContent = activity.activityId
-    el.textContent += " så" //test
+    el.textContent += activity.name
     el.activity = activity //så reservation kan få hele activity object fra dropdown
     console.log(activity.activityId)
     console.log(activity)
     ddSelectActivity.appendChild(el)
 }
 
-function fetchAny(url) {
-    console.log(url)
-    return fetch(url).then((response) => response.json())
-}
+
 

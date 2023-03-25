@@ -14,24 +14,20 @@
   skal der overhoved være en placeholder-->
 </select>
 
-<h2>Opret reservation</h2>
+<h2>Ny reservation</h2>
 
 <div> <!--at bruge action er gammeldags måde at inludere url-->
     <form action="http://localhost:8080/reservation" method="post" id="formReservation">
-        <div>
-            <label for="inpCode">Id</label>
-            <input
-                    type="text"
-                    name="reservationId"
-                    class="inputfield"
-                    placeholder="eks. 0003"
-                    id="inpCode"> <!--name bruger vi i js-->
-        </div>
-        <br>
         <!--det vi slås mest med, at putte en foreign key på et child objekt, sætte region på kommune-->
         <div>
-            <select id="ddSelectActivity">
-                <option value="" selected="data-default" disabled="true">Aktiviteter</option>
+            <select id="ddSelectTimeslot">
+                <option value="" selected="data-default" disabled="true">Timeslot</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <select id="ddSelectCustomer">
+                <option value="" selected="data-default" disabled="true">Kunde</option>
             </select>
         </div>
         <br>
@@ -42,6 +38,8 @@
 
 <script src="../js/fetchReservation.js"></script>
 <script src="../js/formReservation.js"></script>
-<script src="../js/fetchActivity.js"></script>
+<script src="../js/fetchTimeslots.js"></script>
+<script src="../js/fetchCustomer.js"></script>
+
 </body>
 </html>

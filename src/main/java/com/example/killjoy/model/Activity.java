@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,9 +17,13 @@ import java.util.Set;
 @NoArgsConstructor
 public class Activity {
     @Id
-    @Column(length = 4)
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer activityId;
+
+    @NotNull
+    private String name;
+
+    private String imageurl;
 
     @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
