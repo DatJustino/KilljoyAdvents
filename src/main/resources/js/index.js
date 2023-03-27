@@ -1,19 +1,19 @@
-console.log("er i index.js");
+console.log("er i index.js")
 //https://codepen.io/jamesqquick/pen/NWKaNQz
 
-const urlActivity = "http://localhost:8080/activities";
-let activityList = [];
+const urlActivity = "http://localhost:8080/activities"
+let activityList = []
 const tblCustomer = document.getElementById("tblActivity")
 document.addEventListener('DOMContentLoaded', loadActivity);
-const ddSelectActivity = document.getElementById("ddSelectActivity");
+const ddSelectActivity = document.getElementById("ddSelectActivity")
 
-const activitygrit = document.getElementById('activitygrit');
+const activitygrit = document.getElementById('activitygrit')
 
 async function loadActivity() {
     activityList = await fetchAny(urlActivity);
     console.log(activityList);
     //activityList.forEach(createTable)
-    displayActivity(activityList);
+    displayActivity(activityList)
 }
 
 const displayActivity = (activityList) => {
@@ -26,16 +26,14 @@ const displayActivity = (activityList) => {
             <h2 class="card-title">${activity.name}</h2>
             <p class="card-subtitle">Hal ${Math.floor((Math.random() * 5) + 1)}</p>
         </li>
-    `
-        )
-        .join('');
-    activitygrit.innerHTML = activityHTMLString;
+    `).join('')
+    activitygrit.innerHTML = activityHTMLString
 };
 
 
 function fetchAny(url) {
-    console.log(url);
-    return fetch(url).then((response) => response.json());
+    console.log(url)
+    return fetch(url).then((response) => response.json())
 }
 
 /*function createTable(activity) {
