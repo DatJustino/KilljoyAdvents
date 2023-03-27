@@ -9,7 +9,7 @@ async function loadActivity(){
     customerList = await fetchAny(urlCustomer);
     console.log(customerList)
     customerList.forEach(fillActivityDropDown)
-    customerList.forEach(createCustomerTable)
+    customerList.forEach(createTable)
 }
 
 function fetchAny(url) {
@@ -28,7 +28,7 @@ function fillActivityDropDown(customer) {
     ddSelectCustomer.appendChild(el)
 }
 
-function createCustomerTable(customer) {
+function createTable(customer) {
     console.log("creating table " + customer)
     if (!customer.customerId) return;
 

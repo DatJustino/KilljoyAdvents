@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Activity</title>
 
 </head>
 <body>
@@ -14,10 +14,6 @@
     <!--selected default gør at den står først og disabled gør at brugeren ikke kan vælge den
     Tænk dog over om en dropdown SKAL vælges eller om der skal være et tom felt som kan submittes
     skal der overhoved være en placeholder-->
-</select>
-<br><br>
-<select id="ddSelectEmployee">
-    <option value="" selected="data-default" disabled="true">Medarbejdere</option>
 </select>
 
 <h2>Indsæt aktivitet</h2>
@@ -31,7 +27,8 @@
                     name="name"
                     class="inputfield"
                     placeholder="eks. paintball"
-                    id="inpName"> <!--name bruger vi i js, skal hedde det samme som i db-->
+                    id="inpName"> <!--name bruger vi i js, skal hedde det samme som i db
+                    nej java-entity-navne skal hedde det samme som hvor? db? @Column(name=... virker ikke-->
             <!--
             <label for="inpCode">Id</label>
             <input
@@ -60,6 +57,14 @@
         <button type="submit" title="Gem" id="submit">Opret</button>
     </form> <!--man bør kunne sende formen direkte uden js men muligvis virker det ikke fordi den ikke sender det som json-->
 </div>
+<br><br>
+<table class="table" id="tblActivity">
+    <tr>
+        <th>Id</th>
+        <th>Navn</th>
+        <th>Billede</th>
+    </tr>
+</table>
 
 
 <script src="../js/fetchActivity.js"></script>

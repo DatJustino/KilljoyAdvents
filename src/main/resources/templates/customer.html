@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+</head>
+<body>
+<label>Se kunder</label>
+<br>
+<select id="ddSelectCustomer">
+    <option value="" selected="data-default" disabled="true">Kunder</option>
+</select>
+
+<h2>Opret kunde</h2>
+<div>
+    <form action="http://localhost:8080/customer" method="post" id="formCustomer">
+        <div>
+            <label for="inpFirstName">Fornavn</label>
+            <br>
+            <input
+                    type="text"
+                    name="firstname"
+                    class="inputfield"
+                    placeholder="eks. Anna"
+                    required
+                    id="inpFirstName"> <!--name bruger vi i js, skal hedde det samme som i db-->
+            <br>
+            <label for="inpLastName">Efternavn</label>
+            <br>
+            <input
+                    type="text"
+                    name="lastname"
+                    class="inputfield"
+                    placeholder="eks. Jensen"
+                    required
+                    id="inpLastName">
+            <br>
+            <label for="inpMobilNr">Mobilnummer</label>
+            <br>
+            <input
+                    type="tel"
+                    pattern="[0-9]{8}"
+                    name="mobilnr"
+                    class="inputfield"
+                    placeholder="format: 74911088"
+                    required
+                    id="inpMobilNr">
+            <br>
+            <label for="inpEmail">E-mail</label>
+            <br>
+            <input
+                    type="email"
+                    name="email"
+                    class="inputfield"
+                    placeholder="mail@mail.com"
+                    required
+                    id="inpEmail">
+
+            <!--
+            <label for="inpCode">Id</label>
+            <input
+                    type="text"
+                    name="activityId"
+                    class="inputfield"
+                    placeholder="eks. 0003"
+                    id="inpCode"> name bruger vi i js-->
+        </div>
+        <br>
+        <button type="submit" title="Gem" id="submit">Opret</button>
+    </form>
+</div>
+<br><br>
+<table class="table" id="tblCustomer">
+    <tr>
+        <th>Id</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Mobilnummer</th>
+        <th>E-mail</th>
+    </tr>
+</table>
+
+
+<script src="../js/fetchCustomer.js"></script>
+<script src="../js/formCustomer.js"></script>
+</body>
+</html>

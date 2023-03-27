@@ -1,14 +1,15 @@
 console.log("er i fetchTimeslots")
-const urlActivity = "http://localhost:8080/timeslots" //skal hente fra egen database, kalder getmapping endpoint her
+const urlTimeslot = "http://localhost:8080/timeslots"
 let timeslotList = []
 const ddSelectTimeslot = document.getElementById("ddSelectTimeslot")
 
 window.addEventListener("load", loadActivity)
 
 async function loadActivity(){
-    timeslotList = await fetchAny(urlActivity);
+    timeslotList = await fetchAny(urlTimeslot);
     console.log(timeslotList)
     timeslotList.forEach(fillTimeslotDropDown)
+    timeslotList.forEach(createTable)
 }
 
 function fetchAny(url) {
@@ -20,13 +21,30 @@ function fillTimeslotDropDown(timeslot) {
     const el = document.createElement("option")
     console.log(el)
     el.value = timeslot.timeslotId
-    el.textContent = timeslot.timeslotId
-    el.textContent += timeslot.name
+    el.textContent = timeslot.timeslotId + " " + timeslot.timeslotStart
+    //el.textContent += timeslot.name
     el.timeslot = timeslot //så reservation kan få hele activity object fra dropdown
     console.log(timeslot.timeslotId)
     console.log(timeslot)
     ddSelectTimeslot.appendChild(el)
 }
+
+function createTable(timeslot) {
+    console.log("creating table " + timeslot)
+    if (!timeslot.timeslotId) return;
+
+    let cellCount = 0
+    let rowCount = tblTimeslot.rows.length
+    let row = tblTimeslot.insertRow(rowCount)
+    row.id = timeslot.timeslotId
+
+    let cell = row.insertCell(cellCount++)
+    cell.innerHTML = timeslot.timeslotId
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = timeslot.timeslotStart
+}
+
 
 
 

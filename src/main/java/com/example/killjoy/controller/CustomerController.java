@@ -50,4 +50,15 @@ public class CustomerController {
         customerRepo.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    //TODO gør at aktivitet med samme navn ikke kan indsættes flere gange, samme med andre entities
+    //TODO lav required i alle html felter
+
+    //TODO - på reservation, samme timeslot skal ikke kunne oprettes flere gange
+    //TODO kun hvis der er en aktivitet på et timeslot skal der være en employee
+
+    //TODO hal som enum på aktivitet, hvordan hardcodes det?
+
+    //TODO billede på medarbejder?
+
+    //TODO css kan auto-capitalize tekst, men hvor ellers skal det capitalizes? Før det ryger i db?
 }

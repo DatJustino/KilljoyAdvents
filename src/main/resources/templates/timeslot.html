@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeslot</title>
+</head>
+<body>
+<label>Vælg tidsinterval</label>
+<br>
+<select id="ddSelectTimeslot">
+    <option value="" selected="data-default" disabled="true">Timeslots</option>
+</select>
+
+<h2>Nyt timeslot</h2>
+<div>
+    <form action="http://localhost:8080/timeslot" method="post" id="formTimeslot">
+        <div>
+            <label for="inpTimeslot">Tidsinterval</label>
+            <input
+                    type="tel"
+                    pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                    name="timeslot"
+                    class="inputfield"
+                    placeholder="10:00"
+                    id="inpTimeslot">
+        </div>
+        <br>
+        <select id="ddSelectActivity">
+            <option value="" selected="data-default" disabled="true">Aktiviteter</option>
+        </select>
+        <br><br>
+        <select id="ddSelectEmployee">
+            <option value="" selected="data-default" disabled="true">Medarbejdere</option>
+        </select>
+        <br><br>
+        <button type="submit" title="Gem" id="submit">Opret</button>
+    </form>
+</div>
+<br><br>
+<table class="table" id="tblTimeslot">
+    <tr>
+        <th>Id</th>
+        <th>Tidsinterval</th>
+    </tr>
+</table>
+
+<script src="../js/fetchTimeslot.js"></script>
+<script src="../js/fetchActivityTimeslot.js"></script>
+<script src="../js/fetchEmployeeTimeslot.js"></script>
+<script src="../js/formTimeslot.js"></script>
+</body>
+</html>

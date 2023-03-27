@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<label>Se medarbejdere</label>
+<br>
+<select id="ddSelectEmployee">
+  <option value="" selected="data-default" disabled="true">Medarbejdere</option>
+</select>
+
+<h2>Opret medarbejder</h2>
+<div>
+  <form action="http://localhost:8080/employee" method="post" id="formEmployee">
+    <div>
+      <label for="inpFirstName">Fornavn</label>
+      <br>
+      <input
+              type="text"
+              name="firstname"
+              class="inputfield"
+              placeholder="eks. Anna"
+              required
+              id="inpFirstName"> <!--name bruger vi i js, skal hedde det samme som i db-->
+      <br>
+      <label for="inpLastName">Efternavn</label>
+      <br>
+      <input
+              type="text"
+              name="lastname"
+              class="inputfield"
+              placeholder="eks. Jensen"
+              required
+              id="inpLastName">
+      <br>
+      <label for="inpMobilNr">Mobilnummer</label>
+      <br>
+      <input
+              type="tel"
+              pattern="[0-9]{8}"
+              name="mobilnr"
+              class="inputfield"
+              placeholder="format: 74911088"
+              required
+              id="inpMobilNr">
+      <br>
+      <label for="inpEmail">E-mail</label>
+      <br>
+      <input
+              type="email"
+              name="email"
+              class="inputfield"
+              placeholder="mail@mail.com"
+              required
+              id="inpEmail">
+    </div>
+    <br>
+    <button type="submit" title="Gem" id="submit">Opret</button>
+  </form>
+</div>
+<br><br>
+<table class="table" id="tblEmployee">
+  <tr>
+    <th>Id</th>
+    <th>Fornavn</th>
+    <th>Efternavn</th>
+    <th>Mobilnummer</th>
+    <th>E-mail</th>
+  </tr>
+</table>
+
+
+<script src="../js/fetchEmployee.js"></script>
+<script src="../js/formEmployee.js"></script>
+</body>
+</html>

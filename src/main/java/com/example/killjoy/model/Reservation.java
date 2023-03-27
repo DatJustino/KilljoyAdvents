@@ -10,18 +10,19 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 @NoArgsConstructor
 @Entity
+//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"customer", "timeslot"})}) -virker ikke
 public class Reservation {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer reservationId;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "timeslotId", referencedColumnName = "timeslotId")
     private Timeslot timeslot;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     private Customer customer;
 }

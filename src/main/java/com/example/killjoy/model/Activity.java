@@ -21,6 +21,7 @@ public class Activity {
     private Integer activityId;
 
     @NotNull
+    @Column(unique = true)
     private String name;
 
     private String imageurl;

@@ -23,18 +23,20 @@ public class Timeslot {
 
     @NotNull
     @JsonFormat(pattern = "HH:mm")
+    @Column(nullable = false)
     private LocalTime timeslotStart;
 
     @OneToMany(mappedBy = "timeslot", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     private Set<Reservation> reservations = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "activityId", referencedColumnName = "activityId")
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "activityId", referencedColumnName = "activityId", nullable = false)
     private Activity activity;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "employeeId", referencedColumnName = "employeeId") //res skal have act
+    @ManyToOne
+    @JoinColumn(name = "employeeId", referencedColumnName = "employeeId", nullable = false) //res skal have act
     private Employee employee;
 }

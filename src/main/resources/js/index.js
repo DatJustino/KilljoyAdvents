@@ -3,7 +3,7 @@ console.log("er i index.js");
 
 const urlActivity = "http://localhost:8080/activities";
 let activityList = [];
-const tblActivity = document.getElementById("tblActivity")
+const tblCustomer = document.getElementById("tblActivity")
 document.addEventListener('DOMContentLoaded', loadActivity);
 const ddSelectActivity = document.getElementById("ddSelectActivity");
 

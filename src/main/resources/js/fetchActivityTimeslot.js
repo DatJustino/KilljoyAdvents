@@ -9,7 +9,6 @@ async function loadActivity(){
     activityList = await fetchAny(urlActivity);
     console.log(activityList)
     activityList.forEach(fillActivityDropDown)
-    activityList.forEach(createActivityTable)
 }
 
 function fetchAny(url) {
@@ -26,34 +25,4 @@ function fillActivityDropDown(activity) {
     console.log(activity.activityId)
     console.log(activity)
     ddSelectActivity.appendChild(el)
-}
-
-function createActivityTable(activity) {
-    console.log("creating table " + activity)
-    if (!activity.activityId) return;
-
-    let cellCount = 0
-    let rowCount = tblActivity.rows.length
-    let row = tblActivity.insertRow(rowCount)
-    row.id = activity.activityId;
-
-    let cell = row.insertCell(cellCount++)
-    cell.innerHTML = activity.activityId
-
-    cell = row.insertCell(cellCount++)
-    cell.innerHTML = activity.name
-
-    cell = row.insertCell(cellCount++)
-    let atag = document.createElement("a")
-    atag.setAttribute("href", activity.imageurl)
-    atag.innerText = activity.activityId
-    cell.appendChild(atag)
-
-    cell = row.insertCell(cellCount++)
-    let img = document.createElement("img")
-    img.setAttribute("src", activity.imageurl)
-    img.setAttribute("alt", "imageurl")
-    img.setAttribute("width", 150)
-    img.setAttribute("height", 150)
-    cell.appendChild(img)
 }

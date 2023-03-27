@@ -19,17 +19,16 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
 
-    @Column(name = "firstname")
-    private String firstName;
+    private String firstname;
 
-    @Column(name = "lastname")
-    private String lastName;
+    private String lastname;
 
     @NotNull
-    @Column(name = "mobilnr")
-    private String mobilNr;
+    @Column(unique = true)
+    private String mobilnr;
 
     @NotNull
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)

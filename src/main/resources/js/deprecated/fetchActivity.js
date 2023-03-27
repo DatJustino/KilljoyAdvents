@@ -9,7 +9,7 @@ async function loadActivity(){
     activityList = await fetchAny(urlActivity);
     console.log(activityList)
     activityList.forEach(fillActivityDropDown)
-    activityList.forEach(createActivityTable)
+    activityList.forEach(createTable)
 }
 
 function fetchAny(url) {
@@ -21,20 +21,21 @@ function fillActivityDropDown(activity) {
     const el = document.createElement("option")
     console.log(el)
     el.value = activity.activityId
-    el.textContent = activity.activityId + " " + activity.name
+    el.textContent = activity.activityId
+    el.textContent += activity.name
     el.activity = activity //så reservation kan få hele activity object fra dropdown
     console.log(activity.activityId)
     console.log(activity)
     ddSelectActivity.appendChild(el)
 }
 
-function createActivityTable(activity) {
+function createTable(activity) {
     console.log("creating table " + activity)
     if (!activity.activityId) return;
 
     let cellCount = 0
-    let rowCount = tblActivity.rows.length
-    let row = tblActivity.insertRow(rowCount)
+    let rowCount = tblCustomer.rows.length
+    let row = tblCustomer.insertRow(rowCount)
     row.id = activity.activityId;
 
     let cell = row.insertCell(cellCount++)
@@ -57,3 +58,4 @@ function createActivityTable(activity) {
     img.setAttribute("height", 150)
     cell.appendChild(img)
 }
+

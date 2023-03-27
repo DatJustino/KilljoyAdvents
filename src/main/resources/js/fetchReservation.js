@@ -9,6 +9,7 @@ async function loadReservation(){
     reservationList = await fetchAny(urlReservation);
     console.log(reservationList)
     reservationList.forEach(fillReservationDropDown)
+    reservationList.forEach(createTable)
 }
 
 function fillReservationDropDown(reservation) {
@@ -24,5 +25,24 @@ function fillReservationDropDown(reservation) {
 function fetchAny(url) {
     console.log(url)
     return fetch(url).then((response) => response.json())
+}
+
+function createTable(reservation) {
+    console.log("creating table " + reservation)
+    if (!reservation.reservationId) return;
+
+    let cellCount = 0
+    let rowCount = tblReservation.rows.length
+    let row = tblReservation.insertRow(rowCount)
+    row.id = reservation.reservationId;
+
+    let cell = row.insertCell(cellCount++)
+    cell.innerHTML = reservation.reservationId
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = reservation.customer
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = reservation.timeslot
 }
 

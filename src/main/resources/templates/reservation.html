@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reservation</title>
 </head>
 <body>
 <label>Vælg reservation</label>
@@ -33,13 +33,20 @@
         <br>
         <button type="submit" title="Gem" id="submit">Opret</button>
     </form> <!--man bør kunne sende formen direkte uden js men muligvis virker det ikke fordi den ikke sender det som json-->
-
 </div>
+<br><br>
+<table class="table" id="tblReservation">
+    <tr>
+        <th>Id</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Timeslot</th>
+    </tr>
+</table>
 
 <script src="../js/fetchReservation.js"></script>
 <script src="../js/formReservation.js"></script>
-<script src="../js/fetchTimeslots.js"></script>
-<script src="../js/fetchCustomer.js"></script>
-
+<script src="../js/fetchTimeslotReservation.js"></script>
+<script src="../js/fetchCustomerReservation.js"></script>
 </body>
 </html>

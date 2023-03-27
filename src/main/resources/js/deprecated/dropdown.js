@@ -22,5 +22,5 @@ function fillEntityDropDown2(entity) {
     el.activity = entity //så reservation kan få hele activity object fra dropdown
     console.log(String(id))
     console.log(entity)
-    ddSelectActivity.appendChild(el)
+    ddSelectEmployee.appendChild(el)
 }
