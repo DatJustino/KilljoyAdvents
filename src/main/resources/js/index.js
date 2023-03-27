@@ -13,24 +13,23 @@ async function loadActivity() {
     activityList = await fetchAny(urlActivity);
     console.log(activityList);
     //activityList.forEach(createTable)
-    displayPokemon(activityList);
+    displayActivity(activityList);
 }
 
-const displayPokemon = (activityList) => {
+const displayActivity = (activityList) => {
     console.log(activityList);
-    const pokemonHTMLString = activityList
+    const activityHTMLString = activityList
         .map(
             (activity) => `
         <li class="card">
-            <!--<img class="card-image" src="\${pokeman.image}"/>-->
-            <img class="card-image" src="${activity.imageurl}" alt="billede af aktivitet" height="300px" width="300px">
-            <h2 class="card-title">${activity.activityId}. ${activity.name}</h2>
-            <p class="card-subtitle">Hal: "1"</p>
+            <img class="card-image" src="${activity.imageurl}" alt="billede af aktivitet" height="180px" width="180px">
+            <h2 class="card-title">${activity.name}</h2>
+            <p class="card-subtitle">Hal ${Math.floor((Math.random() * 5) + 1)}</p>
         </li>
     `
         )
         .join('');
-    activitygrit.innerHTML = pokemonHTMLString;
+    activitygrit.innerHTML = activityHTMLString;
 };
 
 

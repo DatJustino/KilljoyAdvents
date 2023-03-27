@@ -16,7 +16,7 @@ function fillReservationDropDown(reservation) {
     const el = document.createElement("option")
     console.log(el)
     el.value = reservation.reservationId
-    el.textContent = reservation.reservationId + ' ' + reservation.customer.firstname + ' ' + reservation.customer.lastname + ' ' + reservation.timeslot.timeslotStart
+    el.textContent = reservation.reservationId + ' ' + reservation.customer.firstname + ' ' + reservation.customer.lastname + ' ' + reservation.timeslot.timeslotStart + ' ' + reservation.timeslot.activity.name
     console.log(reservation.reservationId)
     ddSelectReservation.appendChild(el)
 }
