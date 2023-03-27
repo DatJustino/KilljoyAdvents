@@ -20,7 +20,7 @@ function fillTimeslotDropDown(timeslot) {
     const el = document.createElement("option")
     console.log(el)
     el.value = timeslot.timeslotId
-    el.textContent = timeslot.timeslotstart
+    el.textContent = timeslot.timeslotStart + ' ' + timeslot.activity.name
     el.timeslot = timeslot //så reservation kan få hele activity object fra dropdown
     console.log(timeslot.timeslotId)
     console.log(timeslot)

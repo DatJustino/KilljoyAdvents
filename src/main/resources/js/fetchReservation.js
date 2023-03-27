@@ -1,5 +1,5 @@
 console.log("er i fetchReservation")
-const urlReservation = "http://localhost:8080/reservations" //skal hente fra egen database, kalder getmapping endpoint her
+const urlReservation = "http://localhost:8080/reservations"
 let reservationList = []
 const ddSelectReservation = document.getElementById("ddSelectReservation")
 
@@ -16,8 +16,7 @@ function fillReservationDropDown(reservation) {
     const el = document.createElement("option")
     console.log(el)
     el.value = reservation.reservationId
-    el.textContent = reservation.reservationId
-    el.textContent += " så" //test
+    el.textContent = reservation.reservationId + ' ' + reservation.customer.firstname + ' ' + reservation.customer.lastname + ' ' + reservation.timeslot.timeslotStart
     console.log(reservation.reservationId)
     ddSelectReservation.appendChild(el)
 }
@@ -40,9 +39,12 @@ function createTable(reservation) {
     cell.innerHTML = reservation.reservationId
 
     cell = row.insertCell(cellCount++)
-    cell.innerHTML = reservation.customer
+    cell.innerHTML = reservation.customer.firstname + ' ' + reservation.customer.lastname
 
     cell = row.insertCell(cellCount++)
-    cell.innerHTML = reservation.timeslot
+    cell.innerHTML = reservation.timeslot.timeslotStart
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = reservation.timeslot.activity.name
 }
 

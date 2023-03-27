@@ -21,8 +21,7 @@ function fillEmployeeDropDown(employee) {
     const el = document.createElement("option")
     console.log(el)
     el.value = employee.employeeId
-    el.textContent = employee.employeeId
-    el.textContent += employee.name
+    el.textContent = employee.employeeId + ' ' + employee.firstname + ' ' + employee.lastname
     el.employee = employee
     console.log(employee.employeeId)
     console.log(employee)

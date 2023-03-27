@@ -23,6 +23,7 @@ public class Reservation {
 
     @NotNull
     @ManyToOne
+    //@Column(nullable = false) med kun @NotNull var customerId stadig null???
     @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     private Customer customer;
 }

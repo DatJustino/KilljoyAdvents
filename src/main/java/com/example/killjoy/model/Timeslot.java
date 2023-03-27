@@ -23,7 +23,7 @@ public class Timeslot {
 
     @NotNull
     @JsonFormat(pattern = "HH:mm")
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private LocalTime timeslotStart;
 
     @OneToMany(mappedBy = "timeslot", cascade = CascadeType.ALL, orphanRemoval = true)

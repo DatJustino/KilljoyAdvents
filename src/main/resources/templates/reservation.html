@@ -9,16 +9,11 @@
 <br>
 <select id="ddSelectReservation">
   <option value="" selected="data-default" disabled="true">Reservationer</option>
-  <!--selected default gør at den står først og disabled gør at brugeren ikke kan vælge den
-  Tænk dog over om en dropdown SKAL vælges eller om der skal være et tom felt som kan submittes
-  skal der overhoved være en placeholder-->
 </select>
 
 <h2>Ny reservation</h2>
-
-<div> <!--at bruge action er gammeldags måde at inludere url-->
+<div>
     <form action="http://localhost:8080/reservation" method="post" id="formReservation">
-        <!--det vi slås mest med, at putte en foreign key på et child objekt, sætte region på kommune-->
         <div>
             <select id="ddSelectTimeslot">
                 <option value="" selected="data-default" disabled="true">Timeslot</option>
@@ -32,15 +27,15 @@
         </div>
         <br>
         <button type="submit" title="Gem" id="submit">Opret</button>
-    </form> <!--man bør kunne sende formen direkte uden js men muligvis virker det ikke fordi den ikke sender det som json-->
+    </form>
 </div>
 <br><br>
 <table class="table" id="tblReservation">
     <tr>
         <th>Id</th>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
+        <th>Kunde</th>
         <th>Timeslot</th>
+        <th>Aktivitet</th>
     </tr>
 </table>
 

@@ -1,4 +1,4 @@
-console.log("er i fetchCustomer")
+console.log("er i fetchCustomerReservation")
 const urlCustomer = "http://localhost:8080/customers" //skal hente fra egen database, kalder getmapping endpoint her
 let customerList = []
 const ddSelectCustomer = document.getElementById("ddSelectCustomer")

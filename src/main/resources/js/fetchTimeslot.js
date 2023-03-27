@@ -42,4 +42,10 @@ function createTimeslotTable(timeslot) {
 
     cell = row.insertCell(cellCount++)
     cell.innerHTML = timeslot.timeslotStart
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = timeslot.activity.name
+
+    cell = row.insertCell(cellCount++)
+    cell.innerHTML = timeslot.employee.firstname + ' ' + timeslot.employee.lastname
 }
